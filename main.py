@@ -1,4 +1,3 @@
-import numpy as np
 import pyautogui
 import time
 
@@ -12,7 +11,3 @@ import time
 # pyautogui.write("hello")
 
 pyautogui.hotkey('command','c',interval=0.5)
-
-
-
- 
