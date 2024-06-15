@@ -13,6 +13,8 @@ root.title("talSystem")
 root.geometry("600x200")
 
 buttonFrame = tk.Frame(root)
+buttonFrame.pack(fill='both', expand=True)
+
 buttonFrame.columnconfigure(0, weight=1)
 buttonFrame.columnconfigure(1, weight=1)
 
@@ -27,8 +29,6 @@ button3.grid(row=1, column=0, sticky=tk.W + tk.E)
 
 button4 = tk.Button(buttonFrame, text="", font=('arial', 10))
 button4.grid(row=1, column=1, sticky=tk.W + tk.E)
-
-buttonFrame.pack(fill='x')
 
 root.mainloop()
 
