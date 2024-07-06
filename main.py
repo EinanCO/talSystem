@@ -13,6 +13,11 @@ def rightClick():
     pyautogui.hotkey('alt', 'tab')
     pyautogui.click('right_click.png')
 
+def playClick():
+    time.sleep(0.1)
+    pyautogui.hotkey('alt', 'tab')
+    pyautogui.click('play.png')
+
 def leftClick():
     time.sleep(0.1)
     pyautogui.hotkey('alt', 'tab')
@@ -35,14 +40,11 @@ buttonFrame.columnconfigure(3, weight=1)
 buttonFrame.rowconfigure(0,weight=1)
 buttonFrame.rowconfigure(1,weight=1)
 
-button1 = tk.Button(buttonFrame, text="\u2190", font=('arial', 60))
-button1.grid(row=0, column=0,rowspan=2, sticky=tk.NSEW)
+leftClickButton = tk.Button(buttonFrame, text="\u2190", font=('arial', 60),command=leftClick)
+leftClickButton.grid(row=0, column=0,rowspan=2, sticky=tk.NSEW)
 
 rightClickButton = tk.Button(buttonFrame, text="\u2192", font=('arial', 60), command=rightClick)
 rightClickButton.grid(row=0, column=1,rowspan=2, sticky=tk.NSEW)
-
-leftClickButton = tk.Button(buttonFrame, text="\u2192", font=('arial', 60), command=leftClick)
-leftClickButton.grid(row=0, column=1,rowspan=2, sticky=tk.NSEW)
 
 button3 = tk.Button(buttonFrame, text="Copy", font=('arial', 10), command=clickCopy)
 button3.grid(row=0, column=2, sticky=tk.NSEW)
@@ -55,6 +57,10 @@ button4.grid(row=1, column=2, sticky=tk.NSEW)
 
 button4 = tk.Button(buttonFrame, text="Mark-out", font=('arial', 10))
 button4.grid(row=1, column=3, sticky=tk.NSEW)
+
+playClickButton = tk.Button(buttonFrame, text="play", font=('arial', 10), command=playClick)
+playClickButton.grid(row=1, column=3, sticky=tk.NSEW)
+
 
 root.mainloop()
 
