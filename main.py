@@ -11,15 +11,12 @@ def clickCopy():
 def rightClick():
     time.sleep(0.1)
     pyautogui.hotkey('alt', 'tab')
-    # time.sleep(0.1)
-    # pyautogui.press('i')
+    pyautogui.click('right_click.png')
+
+def leftClick():
     time.sleep(0.1)
-    pyautogui.press('space')
-    time.sleep(0.1)
-    pyautogui.press('down')
-
-
-
+    pyautogui.hotkey('alt', 'tab')
+    pyautogui.click('left_click.png')
 
 
 
@@ -41,8 +38,11 @@ buttonFrame.rowconfigure(1,weight=1)
 button1 = tk.Button(buttonFrame, text="\u2190", font=('arial', 60))
 button1.grid(row=0, column=0,rowspan=2, sticky=tk.NSEW)
 
-button2 = tk.Button(buttonFrame, text="\u2192", font=('arial', 60), command=rightClick)
-button2.grid(row=0, column=1,rowspan=2, sticky=tk.NSEW)
+rightClickButton = tk.Button(buttonFrame, text="\u2192", font=('arial', 60), command=rightClick)
+rightClickButton.grid(row=0, column=1,rowspan=2, sticky=tk.NSEW)
+
+leftClickButton = tk.Button(buttonFrame, text="\u2192", font=('arial', 60), command=leftClick)
+leftClickButton.grid(row=0, column=1,rowspan=2, sticky=tk.NSEW)
 
 button3 = tk.Button(buttonFrame, text="Copy", font=('arial', 10), command=clickCopy)
 button3.grid(row=0, column=2, sticky=tk.NSEW)
