@@ -11,17 +11,17 @@ def clickCopy():
 def rightClick():
     time.sleep(0.1)
     pyautogui.hotkey('alt', 'tab')
-    pyautogui.click('right_click.png')
+    pyautogui.click('C:/Users/7352297/Documents/GitHub/talSystem/right_click.png')
 
 def playClick():
     time.sleep(0.1)
     pyautogui.hotkey('alt', 'tab')
-    pyautogui.click('play.png')
+    pyautogui.click('C:/Users/7352297/Documents/GitHub/talSystem/play.png')
 
 def leftClick():
     time.sleep(0.1)
     pyautogui.hotkey('alt', 'tab')
-    pyautogui.click('left_click.png')
+    pyautogui.click('C:/Users/7352297/Documents/GitHub/talSystem/left_click.png')
 
 
 
