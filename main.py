@@ -7,6 +7,7 @@ def copyClick():
     pyautogui.hotkey('alt', 'tab')
     time.sleep(0.1)
     pyautogui.hotkey('ctrl', 'c')
+    
 
 def pasteClick():
     time.sleep(0.1)
@@ -26,12 +27,18 @@ def rightClick():
     pyautogui.hotkey('alt', 'tab')
     time.sleep(0.1)
     pyautogui.press('right')
+    pyautogui.press('right')
+    pyautogui.hotkey('alt', 'tab')
 
 def leftClick():
     time.sleep(0.1)
     pyautogui.hotkey('alt', 'tab')
     time.sleep(0.1)
     pyautogui.press('left')
+    pyautogui.press('left')
+    pyautogui.hotkey('alt', 'tab')
+
+    
 
 def cutClick():
     time.sleep(0.1)
@@ -64,60 +71,57 @@ def insertClick():
     pyautogui.hotkey('alt', 'tab')
     time.sleep(0.1)
     pyautogui.press(',')
+    pyautogui.hotkey('shift','3')
 
 def openInSourceMonitorClick():
     time.sleep(0.1)
     pyautogui.hotkey('alt', 'tab')
     time.sleep(0.1)
+    pyautogui.hotkey('shift','8')
     pyautogui.hotkey('shift','o')
+    
 
 
-root = tk.Tk()
-root.title("talSystem")
-root.geometry("600x200+1300+10")
+window = tk.Tk()
+window.title("talSystem")
+#root.geometry("600x200+1300+10")
 
-buttonFrame = tk.Frame(root)
+buttonFrame = tk.Frame(window,relief=tk.RAISED,borderwidth=1)
 buttonFrame.pack(fill='both', expand=True)
 
-buttonFrame.columnconfigure(0, weight=1)
-buttonFrame.columnconfigure(1, weight=1)
-buttonFrame.columnconfigure(2, weight=1)
-buttonFrame.columnconfigure(3, weight=1)
-buttonFrame.rowconfigure(0,weight=1)
-buttonFrame.rowconfigure(1,weight=1)
 
-leftClickButton = tk.Button(buttonFrame, text="\u2190", font=('arial', 60),command=leftClick)
-leftClickButton.grid(row=0, column=0, sticky=tk.NSEW)
+left_Click_Button = tk.Button(buttonFrame, text="\u2190", font=('arial', 60),command=leftClick,relief="ridge")
+left_Click_Button.grid(row=0, column=0)
 
-rightClickButton = tk.Button(buttonFrame, text="\u2192", font=('arial', 60), command=rightClick)
-rightClickButton.grid(row=0, column=1, sticky=tk.NSEW)
+right_Click_Button = tk.Button(buttonFrame, text="\u2192", font=('arial', 60), command=rightClick,relief="ridge")
+right_Click_Button.grid(row=0, column=1)
 
-deleteClickButton = tk.Button(buttonFrame, text="delete", font=('arial', 10),command=deleteClick)
-deleteClickButton.grid(row=0, column=2, sticky=tk.NSEW)
+delete_Click_Button = tk.Button(buttonFrame, text="delete", font=('arial', 25),command=deleteClick,relief="ridge")
+delete_Click_Button.grid(row=1, column=0)
 
-cutClickButton = tk.Button(buttonFrame, text="cut", font=('arial', 10),command=cutClick)
-cutClickButton.grid(row=0, column=3, sticky=tk.NSEW)
+cut_Click_Button = tk.Button(buttonFrame, text="cut", font=('arial', 25),command=cutClick,relief="ridge")
+cut_Click_Button.grid(row=1, column=1)
 
-saveProjectButton = tk.Button(buttonFrame, text="save project", font=('arial', 10),command=saveProjectClick)
-saveProjectButton.grid(row=0, column=4, sticky=tk.NSEW)
+save_Project_Button = tk.Button(buttonFrame, text="save project", font=('arial', 25),command=saveProjectClick,relief="ridge")
+save_Project_Button.grid(row=1, column=2)
 
-openProjectButton = tk.Button(buttonFrame, text="open project", font=('arial', 10),command=openProjectClick)
-openProjectButton.grid(row=0, column=5, sticky=tk.NSEW)
+open_Project_Button = tk.Button(buttonFrame, text="open project", font=('arial', 25),command=openProjectClick,relief="ridge")
+open_Project_Button.grid(row=2, column=0)
 
-insertButton = tk.Button(buttonFrame, text="insert", font=('arial', 10),command=insertClick)
-insertButton.grid(row=0, column=6, sticky=tk.NSEW)
+insert_Button = tk.Button(buttonFrame, text="insert", font=('arial', 25),command=insertClick,relief="ridge")
+insert_Button.grid(row=2, column=1)
 
-openInSourceMonitorButton = tk.Button(buttonFrame, text="open in source monitor", font=('arial', 10),command=openInSourceMonitorClick)
-openInSourceMonitorButton.grid(row=0, column=7, sticky=tk.NSEW)
+open_In_Source_Monitor_Button = tk.Button(buttonFrame, text="open in source monitor", font=('arial', 25),command=openInSourceMonitorClick,relief="ridge")
+open_In_Source_Monitor_Button.grid(row=2, column=2)
 
-copyButton = tk.Button(buttonFrame, text="copy", font=('arial', 10),command=copyClick)
-copyButton.grid(row=1, column=0, sticky=tk.NSEW)
+copy_Button = tk.Button(buttonFrame, text="copy", font=('arial', 25),command=copyClick,relief="ridge")
+copy_Button.grid(row=3, column=0)
 
-pasteButton = tk.Button(buttonFrame, text="paste", font=('arial', 10),command=pasteClick)
-pasteButton.grid(row=1, column=1, sticky=tk.NSEW)
+paste_Button = tk.Button(buttonFrame, text="paste", font=('arial', 25),command=pasteClick,relief="ridge")
+paste_Button.grid(row=3, column=1)
 
-undoButton = tk.Button(buttonFrame, text="undo", font=('arial', 10),command=undoClick)
-undoButton.grid(row=1, column=2, sticky=tk.NSEW)
+undo_Button = tk.Button(buttonFrame, text="undo", font=('arial', 25),command=undoClick,relief="ridge")
+undo_Button.grid(row=3, column=2)
 
-root.mainloop()
+window.mainloop()
 
