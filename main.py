@@ -2,6 +2,7 @@ import pyautogui
 import time
 import tkinter as tk
 
+
 def copyClick():
     time.sleep(0.1)
     pyautogui.hotkey('alt', 'tab')
@@ -23,22 +24,22 @@ def undoClick():
 
 
 def rightClick():
+    times = int(option_var.get())
     time.sleep(0.1)
     pyautogui.hotkey('alt', 'tab')
     time.sleep(0.1)
-    pyautogui.press('right')
-    pyautogui.press('right')
+    for _ in range(times):
+        pyautogui.press('right')
     pyautogui.hotkey('alt', 'tab')
 
 def leftClick():
+    times = int(option_var.get())
     time.sleep(0.1)
     pyautogui.hotkey('alt', 'tab')
     time.sleep(0.1)
-    pyautogui.press('left')
-    pyautogui.press('left')
+    for _ in range(times):
+        pyautogui.press('left')
     pyautogui.hotkey('alt', 'tab')
-
-    
 
 def cutClick():
     time.sleep(0.1)
@@ -79,8 +80,20 @@ def openInSourceMonitorClick():
     time.sleep(0.1)
     pyautogui.hotkey('shift','8')
     pyautogui.hotkey('shift','o')
-    
 
+def sourceMonitorScreen():
+    time.sleep(0.1)
+    pyautogui.hotkey('alt', 'tab')
+    time.sleep(0.1)
+    pyautogui.hotkey('shift','2')
+   
+
+def timelineScreen():
+    time.sleep(0.1)
+    pyautogui.hotkey('alt', 'tab')
+    time.sleep(0.1)
+    pyautogui.hotkey('shift','3')   
+    
 
 window = tk.Tk()
 window.title("talSystem")
@@ -89,6 +102,13 @@ window.title("talSystem")
 buttonFrame = tk.Frame(window,relief=tk.RAISED,borderwidth=1)
 buttonFrame.pack(fill='both', expand=True)
 
+option_var = tk.StringVar(buttonFrame)
+option_var.set("1")  # default value
+
+options = [str(i) for i in range(1, 11)]  # options from 1 to 10
+option_menu = tk.OptionMenu(buttonFrame, option_var, *options)
+option_menu.config(font=('arial', 50))
+option_menu.grid(row=0, column=2, padx=5, pady=5)
 
 left_Click_Button = tk.Button(buttonFrame, text="\u2190", font=('arial', 60),command=leftClick,relief="ridge")
 left_Click_Button.grid(row=0, column=0)
@@ -122,6 +142,12 @@ paste_Button.grid(row=3, column=1)
 
 undo_Button = tk.Button(buttonFrame, text="undo", font=('arial', 25),command=undoClick,relief="ridge")
 undo_Button.grid(row=3, column=2)
+
+source_monitor_Button = tk.Button(buttonFrame, text="source monitor", font=('arial', 25),command=sourceMonitorScreen,relief="ridge")
+source_monitor_Button.grid(row=4, column=0)
+
+timeline_Button = tk.Button(buttonFrame, text="timeline", font=('arial', 25),command=timelineScreen,relief="ridge")
+timeline_Button.grid(row=4, column=1)
 
 window.mainloop()
 
