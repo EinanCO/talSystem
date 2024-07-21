@@ -24,7 +24,11 @@ def leftClick():
     pyautogui.click('left_click.png')
 
 
-
+def InsertClick():
+    time.sleep(0.1)
+    pyautogui.hotkey('alt', 'tab')
+    time.sleep(2)
+    pyautogui.press(',')
 
 root = tk.Tk()
 root.title("talSystem")
@@ -49,7 +53,10 @@ rightClickButton.grid(row=0, column=1,rowspan=2, sticky=tk.NSEW)
 button3 = tk.Button(buttonFrame, text="Copy", font=('arial', 10), command=clickCopy)
 button3.grid(row=0, column=2, sticky=tk.NSEW)
 
-button4 = tk.Button(buttonFrame, text="Insert", font=('arial', 10))
+# InsertClickButton = tk.Button(buttonFrame, text="play", font=('arial', 10), command=InsertClick)
+# InsertClickButton.grid(row=1, column=3, sticky=tk.NSEW)
+
+button4 = tk.Button(buttonFrame, text="Insert", font=('arial', 10),command=InsertClick)
 button4.grid(row=0, column=3, sticky=tk.NSEW)
 
 button4 = tk.Button(buttonFrame, text="Mark-in", font=('arial', 10))
